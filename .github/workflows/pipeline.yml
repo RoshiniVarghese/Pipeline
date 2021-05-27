@@ -2,6 +2,8 @@
 
 name: CI CD
 
+env: 
+ CICDARTIFACT_NAME: pipelineartifact
 # Controls when the action will run. 
 on: push
  
@@ -30,3 +32,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: create the artifact
         uses: actions/upload-artifact@v2
+        with:
+         path: .
+         name: ${{env.CICDARTIFACT_NAME}}
